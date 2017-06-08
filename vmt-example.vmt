@@ -1,0 +1,34 @@
+// Valve Material Setup 2014. Brought you by Studio Apocalyptic.
+// Written by Yogensia and Rafael De Jongh
+// More information: http://source.gamebanana.com/tuts/11498
+// Parameter Cheat Sheet: http://bit.ly/1ibGMCe (Google Drive Spreadsheet)
+
+Vertexlitgeneric
+{
+
+	// MAIN SETTINGS
+	$basetexture                "path/to/diffuse"
+	$bumpmap                    "path/to/normal"
+
+	// PHONG SHADING
+	$phong                      1
+	$phongboost                 0.48
+	$phongfresnelranges         "[1 4 6]"
+	$phongtint                  "[.8 .8 1]"
+	$phongexponenttexture       "path/to/exponent"
+	$phongalbedotint            1
+	$phongalbedoboost           48
+	$normalmapalphaphongmask    1
+
+	// ENVIRONMENT REFLECTION
+	$envmap                     env_cubemap
+	$envmaptint                 "[.075 .075 .125]"
+	$normalmapalphaenvmapmask   1
+
+	// RIM LIGHT
+	$rimlight                   1
+	$rimlightexponent           24
+	$rimlightboost              1.2
+	$rimmask                    1
+
+}

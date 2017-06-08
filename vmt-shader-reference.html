@@ -1,0 +1,593 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>/* Fonts */
+@font-face{
+  font-family: octicons-anchor;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+@font-face{
+  font-family: fontawesome-mini;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+/* Body */
+html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+
+body{
+  color:#4d4d4c;
+  font-family:Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman',
+              "Hiragino Sans GB", "STXihei", "微软雅黑", serif;
+  font-size:12px;
+  line-height:1.5em;
+  background:#fefefe;
+  width: 45em;
+  margin: 10px auto;
+  padding: 30px;
+  border: 1px solid #ddd;
+  outline: 1300px solid #f8f8f8;
+}
+
+/* Links */
+a{ color: #06d; text-decoration:none; }
+a:hover{ color: #06e; text-decoration: underline; }
+a:active{ color:#faa700; }
+a:focus{ outline: thin dotted; }
+a:hover, a:active{ outline: 0; }
+
+::-moz-selection { background:#a8d1ff; color:#000 }
+::selection { background:#a8d1ff; color:#000 }
+
+a::-moz-selection { background:#a8d1ff; color:#0645ad }
+a::selection { background:#a8d1ff; color:#0645ad }
+
+/* Header Anchor Links*/
+.headeranchor-link {
+  color:#111;
+  border: 0;
+  margin-left: -20px;
+  padding-right: 6px;
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.headeranchor {
+  font: normal normal 16px octicons-anchor;
+  line-height: 1;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.headeranchor-link:hover,
+.headeranchor-link:visited,
+.headeranchor-link:active
+{ text-decoration: none; color:#4d4d4c; }
+.headeranchor-link:hover .headeranchor:before,
+h1:hover .headeranchor:before,
+h2:hover .headeranchor:before,
+h3:hover .headeranchor:before,
+h4:hover .headeranchor:before,
+h5:hover .headeranchor:before,
+h6:hover .headeranchor:before
+{ content: '\f05c'; }
+
+abbr { cursor: pointer; }
+
+/* Paragraphs */
+p { margin:1em 0; }
+
+/* Images */
+img {
+  max-width:100%;
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+  vertical-align: middle;
+}
+
+/* Headers */
+h1,h2,h3,h4,h5,h6 {
+  font-weight:normal;
+  color:#111;
+  line-height: 1.7;
+  position: relative;
+}
+h4,h5,h6{ font-weight: bold; }
+h1 { font-size:2.5em; border-bottom: 1px solid #ddd;}
+h2 { font-size:2em; border-bottom:1px solid #eee; padding-bottom: 5px; }
+h3 { font-size:1.5em; }
+h4 { font-size:1.2em; }
+h5 { font-size:1em; }
+h6 { font-size:0.9em; }
+
+/* Block Quotes */
+blockquote {
+  color:#666666;
+  margin:0;
+  padding-left: 3em;
+  border-left: 0.5em #EEE solid;
+}
+hr { display: block; height: 2px; border: 0; border-top: 1px solid #aaa;border-bottom: 1px solid #eee; margin: 1em 0; padding: 0; }
+
+/* Raw Blocks */
+pre, code, kbd, samp {
+  color: #000;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  font-size: 0.88em;
+  background-color: #F8F8F8;
+  border: 1px solid #CCC;
+}
+
+pre {
+  padding: 10px;
+  overflow: auto;
+}
+
+code { padding: 0 3px 0 3px; }
+pre code { border: 0; padding: 0; }
+
+/* Admonition */
+.admonition {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  font-size: 0.88em;
+  padding: 0.5em 1em 0.5em 1em;
+  margin: 10px auto;
+  color: #888888;
+  background-color: #F8F8F8;
+  border: 1px solid #888888;
+}
+
+.admonition p { padding: 0; margin: 0; }
+.admonition-title { font-weight: bold; margin: 0; }
+
+.admonition-icon {
+  font: normal normal 16px fontawesome-mini;
+  line-height: 1.5;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  float: left;
+}
+
+.admonition.attention { color: #4F8A10; background-color: #DFF2BF; border: 1px solid #4F8A10; }
+.admonition.caution { color: #D63301; background-color: #FFCCBA; border: 1px solid #D63301; }
+.admonition.hint { color: #00529B; background-color: #BDE5F8; border: 1px solid #00529B; }
+.admonition.danger { color: #D8000C; background-color: #FFBABA; border: 1px solid #D8000C; }
+.admonition.question { color: #00049b; background-color: #BDC8F8; border: 1px solid #00049b; }
+.admonition.note { color: #9F6000; background-color: #FEEFB3; border: 1px solid #9F6000; }
+
+.attention > .admonition-icon:before { content: "\f058\00a0"; }
+.caution > .admonition-icon:before { content: "\f06a\00a0"; }
+.hint > .admonition-icon:before { content: "\f05a\00a0"; }
+.danger > .admonition-icon:before { content: "\f056\00a0"; }
+.question > .admonition-icon:before { content: "\f059\00a0"; }
+.note > .admonition-icon:before { content: "\f040\00a0"; }
+
+/* progress bar*/
+.progress {
+  display: block;
+  width: 300px;
+  margin: 10px 0;
+  height: 24px;
+  border: 1px solid #ccc;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #F8F8F8;
+  position: relative;
+  box-shadow: inset -1px 1px 3px rgba(0, 0, 0, .1);
+}
+
+.progress-label {
+  position: absolute;
+  text-align: center;
+  font-weight: bold;
+  width: 100%; margin: 0;
+  line-height: 24px;
+  color: #333;
+  text-shadow:
+    1px 1px 0px #fefefe,
+    -1px -1px 0px #fefefe,
+    -1px 1px 0px #fefefe,
+    1px -1px 0px #fefefe,
+    0px 1px 0px #fefefe,
+    0px -1px 0px #fefefe,
+    1px 0px 0px #fefefe,
+    -1px 0px 0px #fefefe,
+    1px 1px 2px #000;
+  -webkit-font-smoothing: antialiased !important;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 24px;
+  float: left;
+  border-right: 1px solid #ccc;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #34c2e3;
+  box-shadow: inset 0 1px 0px rgba(255, 255, 255, .5);
+  background-size: 30px 30px;
+  background-image: -webkit-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 53%, rgba(255, 255, 255, .4) 53%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -moz-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 53%, rgba(255, 255, 255, .4) 53%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -ms-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 53%, rgba(255, 255, 255, .4) 53%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -o-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 53%, rgba(255, 255, 255, .4) 53%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 53%, rgba(255, 255, 255, .4) 53%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+}
+
+.progress-100plus .progress-bar { background-color: #1ee038; }
+.progress-80plus .progress-bar { background-color: #86e01e; }
+.progress-60plus .progress-bar { background-color: #f2d31b; }
+.progress-40plus .progress-bar { background-color: #f2b01e; }
+.progress-20plus .progress-bar { background-color: #f27011; }
+.progress-0plus .progress-bar { background-color: #f63a0f; }
+
+.gloss .progress-bar {
+  box-shadow:
+    inset -1px 1px 0px rgba(255, 255, 255, .5),
+    inset 0 -4px 12px rgba(255, 255, 255, .7),
+    inset 0 4px 12px rgba(255, 255, 255, .7),
+    inset 0 -12px 0px rgba(0, 0, 0, .05),
+    inset 1px -1px 0px rgba(255, 255, 255, .2);
+}
+
+.candystripe-animate .progress-bar{
+  -webkit-animation: animate-stripes 3s linear infinite;
+  -moz-animation: animate-stripes 3s linear infinite;
+  animation: animate-stripes 3s linear infinite;
+}
+
+@-webkit-keyframes animate-stripes { 0% { background-position: 0 0; } 100% { background-position: 60px 0; } }
+@-moz-keyframes animate-stripes { 0% { background-position: 0 0; } 100% { background-position: 60px 0; } }
+@keyframes animate-stripes { 0% { background-position: 0 0; } 100% { background-position: 60px 0; } }
+
+/* Inlines */
+b, strong { font-weight: bold; }
+
+mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
+
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
+dfn { font-style: italic; }
+
+/* Lists */
+ul, ol { padding-left: 30px; }
+li p:last-child { margin:0 }
+.task-list-item { list-style-type: none; }
+.task-list-item input { float:left; margin-left: -20px; margin-top: 6px; }
+dt { font-weight: bold; font-style: italic;}
+dd { margin: 0 0 0 2em; }
+
+/* Tables */
+table { width: 100%; border-collapse: collapse; overflow-x: auto; overflow-y: hidden; display: block;}
+table tr { background-color: #fefefe; }
+table tr:nth-child(2n) { background-color: #f8f8f8; }
+td, th { border: 1px solid #ddd; padding: 6px 13px; }
+
+/* Codehilite Tables */
+.codehilitetable { border: 0; border-spacing: 0; }
+.linenos, .code, .codehilitetable td { border: 0; padding: 0; }
+td:not(.linenos) .linenodiv { padding: 0 !important; }
+.code { width: 100%; }
+.linenos div pre, .linenodiv pre {
+  border: 0;
+  border-top: 1px solid #CCC;
+  border-left: 1px solid #CCC;
+  border-right: 1px solid #CCC;
+  border-bottom: 1px solid #CCC;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.code div pre {
+  border: 0;
+  border-top: 1px solid #CCC;
+  border-right: 1px solid #CCC;
+  border-bottom: 1px solid #CCC;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -moz-border-radius-topright: 3px;
+  -moz-border-radius-bottomright: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+/* Media */
+@media only screen and (min-width: 480px) {
+  body{ font-size:14px; }
+}
+
+@media only screen and (min-width: 768px) {
+  body{ font-size:16px; }
+}
+
+@media print {
+  * { background: transparent !important; color: black !important; filter:none !important; -ms-filter: none !important; }
+  body{ font-size:12pt; max-width:100%; outline:none; border: 0;}
+  a, a:visited { text-decoration: underline; }
+  .headeranchor-link { display: none; }
+  hr { height: 1px; border:0; border-bottom:1px solid black; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }
+  pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
+  pre, blockquote { border: 1px solid #999; padding-right: 1em; page-break-inside: avoid; }
+  .progress, .progress-bar { box-shadow: none; }
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3 { page-break-after: avoid; }
+}
+</style><title>vmt-shader-reference</title></head><body><p>This guide was put together by <a href="http://gamebanana.com/members/1328950">Yogensia</a> and <a href="http://gamebanana.com/members/366132">Rafaël De Jongh</a> and aims to explain VMT (&ldquo;Valve Material Type&rdquo;) files in the Source engine, how to format them, and which are the most common and useful parameters to make you materials look their best in Source.</p>
+<p><strong>Important:</strong> The information in this guide has been tested against <strong>Left 4 Dead 2</strong> and <strong>Counter-Strike: Global Offensive</strong>. Other versions of the engine may have different support for some of the commands.</p>
+<p><em>Contents:</em></p>
+<ul>
+<li>Before Starting</li>
+<li>Formatting</li>
+<li>Shaders</li>
+<li>Parameters List</li>
+<li>Parameter Cheat Sheet &amp; Ready to tweak VMT example file</li>
+<li>References and Sources</li>
+</ul>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h1 id="formatting"><a name="user-content-formatting" href="#formatting" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>Formatting:</h1>
+<p>Most VMT generators will generate code that works just fine but it&rsquo;s not as readable as it should. They tend to put absolutely everything between quotes, which is unnecessary, and breaks syntax highlighting in text editors.</p>
+<p>Lines should be indented with tabs, and the values should be aligned with spaces or not aligned at all and separated by one space. Aligning the values with tabs is bad practice because depending on the text editor and the tab size it uses, the alignment may or may not work.</p>
+<p>Here&rsquo;s some more detail regarding formatting for parameters and their values:</p>
+<h2 id="parametersvariables"><a name="user-content-parametersvariables" href="#parametersvariables" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>Parameters/Variables</h2>
+<p>Parameters themselves and variables should not be quoted.</p>
+<p>Example: <code>$envmap env_cubemap</code></p>
+<h2 id="boolean-parameters"><a name="user-content-boolean-parameters" href="#boolean-parameters" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>Boolean parameters</h2>
+<p>Boolean parameters accept values 1 or 0, meaning on and off respectively. Their value should not be quoted.</p>
+<p>Example: <code>$phong 1</code></p>
+<h2 id="stringpath-parameters"><a name="user-content-stringpath-parameters" href="#stringpath-parameters" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>String/Path parameters</h2>
+<p>String parameters accept text as a value, in the case of VMT shaders usually a path. Paths in VMT files are relative to &ldquo;gamedir/materials/&rdquo;.</p>
+<p>Strings and Paths should always be quoted for consistency, although lack of quotes won&rsquo;t break them as long as there are no spaces.</p>
+<p>File extensions in paths should be omitted.</p>
+<p>Example: <code>$basetexture "models/props/garbage"</code></p>
+<h2 id="float-parameters"><a name="user-content-float-parameters" href="#float-parameters" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>Float parameters</h2>
+<p>Float parameters accept any numerical value, such as 10, 0.5&hellip; Numerical values should not be quoted.</p>
+<p><strong>Note:</strong> The leading zero on decimal values can be omitted if quotes are used but this is not necessary, so for consistency it should be avoided.</p>
+<p>Example: <code>$phongboost 0.48</code></p>
+<h2 id="matrix-parameters"><a name="user-content-matrix-parameters" href="#matrix-parameters" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>Matrix parameters</h2>
+<p>Matrix parameters accept numerical values, but only in &ldquo;[X Y Z]&rdquo; format, X, Y and Z being the numbers. The quotes and brackets can not be omitted. Leading zeroes in this case can be safely omitted since quotes are needed regardless.</p>
+<p><strong>Note:</strong> The numbers inside a matrix are never quoted, quotes should only be around the brackets.</p>
+<p>Example: <code>$phongfresnelranges "[1 4 6]"</code></p>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h1 id="shaders"><a name="user-content-shaders" href="#shaders" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>Shaders</h1>
+<p>VMT files allow us to use several shaders depending on the kind of material we want to achieve. In this guide we will focus on parameters meant to be used with the <code>Vertexlitgeneric</code> shader which is the most common shader used on models like weapons and props.</p>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h1 id="main-parameters"><a name="user-content-main-parameters" href="#main-parameters" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>Main Parameters</h1>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h2 id="basetexture-pathtodiffuse-string"><code>$basetexture "path/to/diffuse"</code> (string)</h2>
+<p>Defines an Albedo texture (also known as Diffuse), which controls the color.</p>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h2 id="bumpmap-pathtonormal-string"><code>$bumpmap "path/to/normal"</code> (string)</h2>
+<p>Defines a Normal map texture, which controls the direction each pixel will be facing in 3D tangent space, allowing to create the illusion of more surface detail.</p>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h1 id="phong-parameters"><a name="user-content-phong-parameters" href="#phong-parameters" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>Phong Parameters</h1>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h2 id="phong-1-boolean"><code>$phong 1</code> (boolean)</h2>
+<p>Enables Phong shading.</p>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h2 id="phongboost-084-float"><code>$phongboost 0.84</code> (float)</h2>
+<p>Increases Phong intensity. A value of 0 is the same as no value.</p>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h2 id="phongfresnelranges-1-4-6-xyz-matrix"><code>$phongfresnelranges "[1 4 6]"</code> (XYZ matrix)</h2>
+<p>Defines the brightness of the phong highlight depending on the angle of incidence relative to the player viewpoint.</p>
+<p>This option uses a matrix value, &ldquo;[X Y Z]&rdquo; where X controls the brightness of surfaces facing directly to the player, Z for the surfaces facing 90 degrees away (grazing angle) and Y for in between.</p>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h2 id="phongtint-8-8-1-rgb-matrix"><code>$phongtint "[.8 .8 1]"</code> (RGB matrix)</h2>
+<p>Controls the color of the Phong highlight. Similar to the previous command, this one uses a matrix value, but this time for Red, Green and Blue values: &ldquo;[R G B]&rdquo;.</p>
+<p>A simple way of tweaking this is starting with the values &ldquo;[1 1 1]&rdquo; and reducing from there. For example, &ldquo;[1 1 .8]&rdquo; would tint the highlight slightly yellow.</p>
+<p><strong>Note:</strong> The values in <code>$phongtint</code> default to &ldquo;[0 0 0]&rdquo;, which means that using &ldquo;[1 1 1]&rdquo; will increase overall Phong intensity. This shouldn&rsquo;t be an issue though, since Phong highlights are usually very dim by default.</p>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h2 id="phongexponent-24-float"><code>$phongexponent 24</code> (float)</h2>
+<p>Controls the tightness of the Phong highlight. This parameter should only be used if there&rsquo;s no exponent map available. To keep the Phong highlights from introducing aliasing the value should be not exceed 150.</p>
+<p><strong>Warning: This parameter will override <code>$phongexponenttexture</code> completely!</strong></p>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h2 id="phongexponenttexture-pathtoexponent-string"><code>$phongexponenttexture "path/to/exponent"</code> (string)</h2>
+<p>Specifies a custom texture that controls the tightness of the highlight. Only the Red channel in that texture will be used for this purpose. Pure white equals a <code>$phongexponent</code> value of 150 (smaller highlights), while Black equals a value of 1.</p>
+<p><strong>Note:</strong> <code>$phongexponenttexture</code> will only use the texture&rsquo;s Red channel, but note that the Green channel <em>will</em> be used to mask <code>$phongalbedotint</code>, and the Alpha channel <em>can</em> be used to mask <code>$rimlight</code>.</p>
+<p><strong>Warning: This parameter will be ignored if <code>$phongexponent</code> is used!</strong></p>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h2 id="phongalbedotint-1-boolean"><code>$phongalbedotint 1</code> (boolean)</h2>
+<p>Allows the color of the Albedo texture to tint the Phong highlights. This is a relatively new parameter that only works in newer versions of the engine such as in CS:GO.</p>
+<p>If present, the Green channel from <code>$phongexponenttexture</code> will be used to determine the intensity of the effect per-pixel.</p>
+<p><em>Doesn&rsquo;t work in L4D2.</em></p>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h2 id="phongalbedoboost-48-float"><code>$phongalbedoboost 48</code> (float)</h2>
+<p>Increases PhongAlbedoTint brightness. A value of 0 is the same as no value.</p>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h2 id="normalmapalphaphongmask-1-boolean"><code>$normalmapalphaphongmask 1</code> (boolean)</h2>
+<p>Forces the Phong mask to be read from the <code>$bumpmap</code> alpha channel.</p>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h2 id="basemapalphaphongmask-0-boolean"><code>$basemapalphaphongmask 0</code> (boolean)</h2>
+<p>Forces the Phong mask to be read from the <code>$basetexture</code> alpha channel.</p>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h2 id="phongwarptexture-pathtophongwarp-string"><code>$phongwarptexture "path/to/phongwarp"</code> (string)</h2>
+<p>Uses a texture to tint the phong highlight, allowing to create iridescence and other fancy effects.</p>
+<p>This parameter may not work when <code>$phongexponenttexture</code> is being used.</p>
+<p><em>Doesn&rsquo;t work in L4D2.</em></p>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h2 id="lightwarptexture-pathtolightwarp-string"><code>$lightwarptexture "path/to/lightwarp"</code> (string)</h2>
+<p>Loads a gradient texture that tints texels depending on their brightness. This allows material color correction and can be used to achieve other effects that depend on subtle shading variations, such as toon shading.</p>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h1 id="environment-map-parameters"><a name="user-content-environment-map-parameters" href="#environment-map-parameters" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>Environment Map Parameters</h1>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h2 id="envmap-env_cubemap-stringvariable"><code>$envmap env_cubemap</code> (string/variable)</h2>
+<p>Specifies a cubemap used to render Environment reflections on the material.</p>
+<p>Using the value <code>env_cubemap</code> will let the level choose the cubemap closest to the player. This is usualy the recommended setting. Alternatively, a custom cubemap texture can be specified.</p>
+<p>Environment reflections in the Source engine heavily rely on Phong settings. The more intense the the Phong highlight is, the more intense the Environment reflections will be. A useful command to control Environment reflections independently of Phong settings is to use <code>$envmaptint</code> (see below).</p>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h2 id="envmaptint-075-075-125-rgb-matrix"><code>$envmaptint "[.075 .075 .125]"</code> (RGB matrix)</h2>
+<p>Tints the Environment reflections color.</p>
+<p><strong>Tip:</strong> Note that unlike <code>$phongtint</code>, this parameter defaults to &ldquo;[1 1 1]&rdquo;, which means that using a very low value will dim the Environment reflections without affecting the Phong settings. For example, a value of &ldquo;[.02 .02 .02]&rdquo; will greatly reduce the Environment reflections. This may be useful in many cases, specially when trying to represent materials with low glossiness.</p>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h2 id="envmapfresnel-1-float"><code>$envmapfresnel 1</code> (float)</h2>
+<p>Adds a Fresnel term to Environment reflections, which increases their intensity depending on the angle of incidence. Areas facing away from the player&rsquo;s point of view will be more reflective.</p>
+<p>Increasing this value increases the Fresnel effect but it will also increase the overall Environment reflections intensity. Again, this can be tweaked in combination with <code>$envmaptint</code> to avoid excessive over-brightening.</p>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h2 id="basealphaenvmapmask-0-boolean"><code>$basealphaenvmapmask 0</code> (boolean)</h2>
+<p>Forces the Environment reflections mask to be read from the <code>$basetexture</code> alpha channel.</p>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h2 id="normalmapalphaenvmapmask-1-boolean"><code>$normalmapalphaenvmapmask 1</code> (boolean)</h2>
+<p>Forces the Environment reflections mask to be read from the <code>$bumpmap</code> alpha channel.</p>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h1 id="rim-light"><a name="user-content-rim-light" href="#rim-light" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>Rim Light</h1>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h2 id="rimlight-1-boolean"><code>$rimlight 1</code> (boolean)</h2>
+<p>Enables Rim Lighting, adding a subtle of ambient light to the model.</p>
+<p><em>Doesn&rsquo;t work in L4D2.</em></p>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h2 id="rimlightexponent-24-float"><code>$rimlightexponent 24</code> (float)</h2>
+<p>Controls the width of the Rim highlight.</p>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h2 id="rimlightboost-12-float"><code>$rimlightboost 1.2</code> (float)</h2>
+<p>Increases Rim Light intensity. A value of 0 is the same as no value.</p>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h2 id="rimmask-1-boolean"><code>$rimmask 1</code> (boolean)</h2>
+<p>Masks Rim Light with the alpha channel of <code>$phongexponenttexture</code>.</p>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h1 id="self-illumination-parameters"><a name="user-content-self-illumination-parameters" href="#self-illumination-parameters" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>Self-Illumination Parameters</h1>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h2 id="selfillum-1-boolean"><code>$selfillum 1</code> (boolean)</h2>
+<p>Enables Self-Illumination. The alpha channel in <code>$basetexture</code> is used as a mask to determine the level of Self-Illumination.</p>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h2 id="selfillumtint-1-1-1-r-g-b"><code>$selfillumtint "[1 1 1]"</code> ([R G B])</h2>
+<p>Tints the color of the Self-Illumination.</p>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h2 id="selfillummask-pathtoselfillum-string"><code>$selfillummask "path/to/selfillum"</code> (string)</h2>
+<p>Defines a custom Self-Illumination mask. This mask can contain color information, which will be used to determine the color of the glow. Brighter colors in the texture will glow with more intensity.</p>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h1 id="animated-texture-parameters"><a name="user-content-animated-texture-parameters" href="#animated-texture-parameters" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>Animated Texture Parameters</h1>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h2 id="animatedtexture-proxy"><code>Animatedtexture</code> (Proxy)</h2>
+<p>Animated textures are loaded with a proxy and allow to read several frames in a VTF file and use them as an animation. The whole syntax is as follows:</p>
+<pre><code>Proxies
+{
+    AnimatedTexture
+    {
+        animatedTextureVar           $basetexture
+        animatedTextureFrameNumVar   $frame
+        animatedTextureFrameRate     24
+    }
+}
+</code></pre>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h2 id="animatedtexturevar-basetextureuse-variablestring"><code>animatedtexturevar $basetextureuse</code> (variable/string)</h2>
+<p>Defines the animated texture that contains the frames. Can be used to define a custom texture or reference <code>$basetexture</code> directly.</p>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h2 id="animatedtextureframenumvar-frame-variablestring"><code>animatedtextureframenumvar $frame</code> (variable/string)</h2>
+<p>Determines the number of frames in the animation. <code>$frame</code> will use all the frames in the texture.</p>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h2 id="animatedtextureframerate-24-integrer"><code>animatedtextureframerate 24</code> (integrer)</h2>
+<p>Speed of the animation in frames per second. Higher values will increase the speed.</p>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h1 id="detail-texture-parameters"><a name="user-content-detail-texture-parameters" href="#detail-texture-parameters" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>Detail Texture Parameters</h1>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h2 id="detail-pathtodetail-string"><code>$detail "path/to/detail"</code> (string)</h2>
+<p>Texture that blends with the albedo to increase detail when looking at a surface from a close distance.</p>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h2 id="detailscale-1-float"><code>$detailscale 1</code> (float)</h2>
+<p>Scale of the detail texture allowing it to tile and give the impression of higher resolution.</p>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h2 id="detailblendfactor-05-float"><code>$detailblendfactor 0.5</code> (float)</h2>
+<p>Opacity of the detail texture.</p>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h2 id="detailblendmode-0-integrer"><code>$detailblendmode 0</code> (integrer)</h2>
+<p>Type of blend mode to use when combining with albedo map. This is usually left at 0, which works similar to Photoshop&rsquo;s Overlay blend mode, where grey becomes transparent, while brighter pixels brgiten the image and darker pixels darken it.</p>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h1 id="other-parameters"><a name="user-content-other-parameters" href="#other-parameters" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>Other Parameters</h1>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h2 id="model-1-boolean"><code>$model 1</code> (boolean)</h2>
+<p>Defines if the object is a world model or not and is needed to make some shaders work on models, like UnlitGeneric or Refract.</p>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h2 id="surfaceprop-metal-string"><code>$surfaceprop "metal"</code> (string)</h2>
+<p>Defines material type, affecting physical properties, sounds and bullet decals.</p>
+<p>Material type names are defined in <code>&lt;game&gt;\scripts\surfaceproperties_manifest.txt</code>.</p>
+<p>Some common materials are easy to guess like <code>wood</code>, <code>metal</code>, <code>concrete</code>, <code>plastic</code>, <code>grass</code>, <code>water</code>, etc. A <a href="https://developer.valvesoftware.com/wiki/Material_surface_properties">list of typical stock Valve material types can be found here</a>.</p>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h2 id="nocull-1-boolean"><code>$nocull 1</code> (boolean)</h2>
+<p>Makes the material double sided, useful when working with transparent material or for elements like hair. Same result can be achieved by manually duplicating and fliping the necessary polygons in the model.</p>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h2 id="translucent-1-boolean"><code>$translucent 1</code> (boolean)</h2>
+<p>Allow the material to be partially transparent. The alpha channel in <code>$basetexture</code> is used as a mask to determine the level of transparency, white being opaque and black being completely transparent.</p>
+<p><strong>Warning:</strong> This parameter may not work when some other parameters are present, such as <code>$envmap</code> or <code>$selfillum</code>. If <code>$translucent</code> doesn&rsquo;t seem to work, <code>$alphatest</code> might be useful instead.</p>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h2 id="alphatest-1-boolean"><code>$alphatest 1</code> (boolean)</h2>
+<p>Similar to <code>$translucent</code> but offers lower fidelity and is faster to draw. It also works better in cases where <code>$translucent</code> fails, and handles depth issues better.</p>
+<p><strong>Warning:</strong> This parameter may not work when some other parameters are present, such as <code>$envmap</code>.</p>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h2 id="halflambert-1-boolean"><code>$halflambert 1</code> (boolean)</h2>
+<p>Softens the diffuse shading, resulting in lower contrast on the side of the model that&rsquo;s facing away from light. Can be useful in very specific cases, for example when trying to simulate materials like skin or wax.</p>
+<p><img alt="" src="https://dl.dropboxusercontent.com/u/251256/GameBanana/headlines/sep-vertical-30px.png" /></p>
+<h1 id="parameter-cheat-sheet-ready-to-tweak-vmt-example-file"><a name="user-content-parameter-cheat-sheet-ready-to-tweak-vmt-example-file" href="#parameter-cheat-sheet-ready-to-tweak-vmt-example-file" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>Parameter Cheat Sheet &amp; Ready to tweak VMT example file</h1>
+<p>Once you have learned a bit what each parameter does, it&rsquo;s still useful to have them available and organized so that they are easy to look up when you need to. That&rsquo;s why we also made a <strong>VMT Cheat Sheet</strong> with all the commands mentioned in this guide. Check it out in the following link:</p>
+<h2 id="parameter-cheat-sheet"><a href="https://docs.google.com/spreadsheet/ccc?key=0AhHX_PkshUi7dG1aYlNRT3RnQlFaV0tkbVdIb2hReUE&amp;usp=drive_web#gid=0">Parameter Cheat Sheet</a></h2>
+<p>You can also download a <strong>VMT example file</strong> with the most common parameters for skins ready to be tweaked for your model!</p>
+<h2 id="pdf-version-of-this-guide"><a href="https://dl.dropboxusercontent.com/u/251256/GameBanana/submissions/tutorials/vmt-parameters/dl_dropboxusercontent_com_u_251256_vmt-shader-reference.pdf">PDF Version of this Guide</a></h2>
+<h2 id="vmt-example-file"><a href="https://dl.dropboxusercontent.com/u/251256/GameBanana/submissions/tutorials/vmt-parameters/vmt-example.vmt">VMT Example File</a></h2>
+<h2 id="vmt-example-file-commented-version"><a href="https://dl.dropboxusercontent.com/u/251256/GameBanana/submissions/tutorials/vmt-parameters/vmt-example-commented.vmt">VMT Example File (commented version)</a></h2>
+<p>(Use right click and &ldquo;Save link as&hellip;&rdquo; if you want to download the PDF or VMT examples.)</p>
+<h1 id="references-and-sources"><a name="user-content-references-and-sources" href="#references-and-sources" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>References and sources:</h1>
+<ul>
+<li>In-game Testing by <a href="http://gamebanana.com/members/1328950">Yogensia</a> and <a href="http://gamebanana.com/members/366132">Rafaël De Jongh</a> (Left 4 Dead 2, Counter-Strike: Global Offensive)</li>
+<li><a href="https://developer.valvesoftware.com/wiki/Main_Page">Valve Wiki</a></li>
+<li><a href="http://wiki.polycount.com/">PolyCount Wiki</a></li>
+</ul></body></html>

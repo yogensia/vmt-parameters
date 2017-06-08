@@ -1,0 +1,34 @@
+// Valve Material Setup 2014. Brought you by Studio Apocalyptic.
+// Written by Yogensia and Rafael De Jongh
+// More information: http://source.gamebanana.com/tuts/11498
+// Parameter Cheat Sheet: http://bit.ly/1ibGMCe (Google Drive Spreadsheet)
+
+Vertexlitgeneric
+{
+
+	// MAIN SETTINGS
+	$basetexture                "path/to/diffuse"      // Diffuse Map
+	$bumpmap                    "path/to/normal"       // Normal Map
+
+	// PHONG SHADING
+	$phong                      1                      // Enable Phong Shading
+	$phongboost                 0.48                   // Increase brightness of Phong highlight
+	$phongfresnelranges         "[1 4 6]"              // Intensity of Phong depending on view angle
+	$phongtint                  "[.8 .8 1]"            // Tint the phong highlight (RGB value)
+	$phongexponenttexture       "path/to/exponent"     // Exponent (gloss) Map
+	$phongalbedotint            1                      // Allows Diffuse to color phong highlights
+	$phongalbedoboost           48                     // Increase brightness of AlbedoTint effect
+	$normalmapalphaphongmask    1                      // Use alpha channel in normal Map to mask Phong highlight
+
+	// ENVIRONMENT REFLECTION
+	$envmap                     env_cubemap            // Enable Specular Reflection and let level choose cubemap
+	$envmaptint                 "[.075 .075 .125]"     // Tint the Specular Reflection (RGB value)
+	$normalmapalphaenvmapmask   1                      // Use alpha channel in Normal Map to mask Specular Reflection
+
+	// RIM LIGHT
+	$rimlight                   1                      // Enable Rim Lighting
+	$rimlightexponent           24                     // Tightness of Rim Light highlight
+	$rimlightboost              1.2                    // Increase brightness of Rim Light highlight
+	$rimmask                    1                      // Use alpha channel in Exponent Map to mask Rim Light
+
+}
